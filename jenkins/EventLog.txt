@@ -1,0 +1,6 @@
+1 6 D5Information
+2 4 D5Error
+3 5 D5wer
+4 1 D5TEstinf
+5 5 D5Dqata
+6 3 D5Quesrty
