@@ -46,7 +46,7 @@ def readlogs(devLog){readFile(devLog).collect{x-> x.split(" ")}}
 def readDeviceLocation(location, devices) {devices.findAll{ it[2] == location}.collect{it[0]}}
 	
 def readEventsdeviceIds(device, events) {
-		for(x in device){println events.findAll{it[1] == x}}//.collect{it}}
+		for(x in device){echo events.findAll{it[1] == x}}//.collect{it}}
 	}
 
 
