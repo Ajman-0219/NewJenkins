@@ -37,8 +37,8 @@ def createDirectory(dirName){
 //writeEvents(6, 6, "D5Information")
 //def readLogs={location-> readlogs(locationLog)}
 
-deviceLog = "./jenkins/Devices.txt"
-locationLog = "./jenkins/EventLog.txt"
+deviceLog = "./helperFiles/Devices.txt"
+locationLog = "./helperFiles/EventLog.txt"
 
 
 def readlogs(devLog){readFile(devLog).collect{x-> x.split(" ")}}
