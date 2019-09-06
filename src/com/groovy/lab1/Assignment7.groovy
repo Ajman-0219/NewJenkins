@@ -1,5 +1,3 @@
-import java.io.File
-
 def storeData(fileName, data){
 	def str = readFile(fileName)
 	str+="\n"+data
@@ -37,8 +35,8 @@ def createDirectory(dirName){
 //writeEvents(6, 6, "D5Information")
 //def readLogs={location-> readlogs(locationLog)}
 
-deviceLog = "C:/Users/Administrator/Desktop/Ajith/Devices.txt"
-locationLog = "C:/Users/Administrator/Desktop/Ajith/EventLog.txt"
+deviceLog = "./jenkins/Devices.txt"
+locationLog = "./jenkins/EventLog.txt"
 
 
 def readlogs(devLog){readFile(devLog).collect{x-> x.split(" ")}}
@@ -46,7 +44,7 @@ def readlogs(devLog){readFile(devLog).collect{x-> x.split(" ")}}
 def readDeviceLocation(location, devices) {devices.findAll{ it[2] == location}.collect{it[0]}}
 	
 def readEventsdeviceIds(device, events) {
-		for(x in device){echo events.findAll{it[1] == x}}//.collect{it}}
+		for(x in device){println events.findAll{it[1] == x}}//.collect{it}}
 	}
 
 
