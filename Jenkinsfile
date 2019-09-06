@@ -5,7 +5,7 @@ pipeline{
             steps{
                 echo 'Loading External file'
             script{
-                def echoer = load "./src/com/groovy/lab1/Assignment7.groovy" //"./jenkins/echoer.groovy"
+                def echoer = load "./src/com/groovy/lab1/Closure2.groovy" //"./jenkins/echoer.groovy"
                 echoer.echoIt('Hello World')
             }
             echo 'Loading File and Called'
