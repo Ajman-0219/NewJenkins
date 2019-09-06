@@ -44,9 +44,9 @@ def locationLog = "C:/Users/Administrator/Desktop/Ajith/EventLog.txt"
 
 def readlogs(devLog){
 	 def devData = readFile(devLog)
-	 //println devData
-	def spData = devData.split("\n")
-	spData.collect{x-> x.split(" ")}
+	 println devData
+	//def spData = devData.split("\n")
+	devData.collect{x-> x.split(" ")}
 	
 	
 }
@@ -57,8 +57,17 @@ def readEventlog = readlogs(locationLog )
 
 
 def readDeviceLocation(location, devices) {
-	println devices; 
-	println devices.findAll{println it; it[2] == 'Bengaluru'}//.collect{it[0]}
+	//println devices; 
+	println devices.findAll{ it[2] == location}.collect{it[0]}
 	}
+	
+	def readEventsdeviceIds(devices, events) {
+		//println events;
+		for(x in devices){
+			println "x value is "+x
+		println events.findAll{ it[1] == x}//.collect{it[0]}
+		}
+		}
 
 readDeviceLocation("Bengaluru", readDevlog)
+readDeviceLocation(readDevlog, readEventlog)
