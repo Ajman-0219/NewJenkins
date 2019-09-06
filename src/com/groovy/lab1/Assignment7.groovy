@@ -64,8 +64,8 @@ def readDeviceLocation(location, devices) {
 	def readEventsdeviceIds(devices, events) {
 		//println events;
 		for(x in devices){
-			println "x value is "+x
-		println events.findAll{ it[1] == x}//.collect{it[0]}
+			println x
+		//println events.findAll{ it[1] == x}//.collect{it[0]}
 		}
 		}
 
