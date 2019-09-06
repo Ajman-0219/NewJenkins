@@ -5,7 +5,7 @@ pipeline{
             steps{
                 echo 'Loading External file'
             script{
-                def echoer = load "./src/com/groovy/lab1/Closure2.groovy" //"./jenkins/echoer.groovy"
+                def echoer = load "./jenkins/echoer.groovy"
                 echoer.echoIt('Hello World')
             }
             echo 'Loading File and Called'
@@ -23,6 +23,21 @@ pipeline{
                     println("disk_size = ${disk_size}")
                 }
 
+            }
+
+        }
+        
+        stage('Three'){
+            steps{
+                echo 'Loading External file'
+            script{
+                def echoer = load "./src/com/groovy/lab1/ClassEmployee2.groovy" //"./jenkins/echoer.groovy"
+                echoer.echoIt('Hello World')
+            }
+            echo 'Loading File and Called'
+            sh "echo Hello from the shell"
+            sh "hostname"
+            sh "uptime"
             }
 
         }
