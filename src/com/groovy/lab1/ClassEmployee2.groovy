@@ -40,7 +40,7 @@ class Employee {
 	
 	def printInformation()
 	{
-		println "Name is ${this.name} and Age is ${this.age}"
+		echo "Name is ${this.name} and Age is ${this.age}"
 	}	
 }
 
