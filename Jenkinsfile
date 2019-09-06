@@ -32,7 +32,7 @@ pipeline{
                 echo 'Loading External file'
             script{
                 def echoer = load "./src/com/groovy/lab1/ClassEmployee.groovy" //"./jenkins/echoer.groovy"
-                echoer.echoIt('Hello World')
+                
             }
             echo 'Loading File and Called'
             sh "echo Hello from the shell"
