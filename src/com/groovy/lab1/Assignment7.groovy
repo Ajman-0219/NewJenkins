@@ -19,8 +19,7 @@ def createDirectory(dirName){
 	file.mkdir()
 } 
 
-def deviceLog = "C:/Users/Administrator/Desktop/Ajith/Devices.txt"
-def locationLog = "C:/Users/Administrator/Desktop/Ajith/EventLog.txt"
+
 
 //def writeDevices={deviceId, name , location-> storeData(deviceLog, deviceId+","+name+","+location)}
 //writeDevices(2, "D1", "Bengaluru")
@@ -36,38 +35,27 @@ def locationLog = "C:/Users/Administrator/Desktop/Ajith/EventLog.txt"
 //writeEvents(4, 2, "D3Error")
 //writeEvents(5, 4, "D4Fault")
 //writeEvents(6, 6, "D5Information")
-
-
 //def readLogs={location-> readlogs(locationLog)}
 
+deviceLog = "C:/Users/Administrator/Desktop/Ajith/Devices.txt"
+locationLog = "C:/Users/Administrator/Desktop/Ajith/EventLog.txt"
 
 
-def readlogs(devLog){
-	 def devData = readFile(devLog)
-	 println devData
-	//def spData = devData.split("\n")
-	devData.collect{x-> x.split(" ")}
+def readlogs(devLog){readFile(devLog).collect{x-> x.split(" ")}}
+
+def readDeviceLocation(location, devices) {devices.findAll{ it[2] == location}.collect{it[0]}}
 	
+def readEventsdeviceIds(device, events) {
+		for(x in device){println events.findAll{it[1] == x}}//.collect{it}}
+	}
+
+
+def checkLog(location){
+	def readDevlog = readlogs(deviceLog)
+	def readEventlog = readlogs(locationLog)
 	
+	def devices = readDeviceLocation(location, readDevlog)
+	readEventsdeviceIds(devices, readEventlog)
 }
 
-
-def readDevlog = readlogs(deviceLog )
-def readEventlog = readlogs(locationLog )
-
-
-def readDeviceLocation(location, devices) {
-	//println devices; 
-	println devices.findAll{ it[2] == location}.collect{it[0]}
-	}
-	
-	def readEventsdeviceIds(devices, events) {
-		//println events;
-		for(x in devices){
-			println x
-		//println events.findAll{ it[1] == x}//.collect{it[0]}
-		}
-		}
-
-readDeviceLocation("Bengaluru", readDevlog)
-readDeviceLocation(readDevlog, readEventlog)
+checkLog("Bengaluru")
